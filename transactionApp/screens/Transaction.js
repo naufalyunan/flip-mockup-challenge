@@ -23,7 +23,6 @@ const Transaction = () => {
 	console.log(transactions)
 	return (
 		<SafeAreaView>
-			{/* <Text>Transaction</Text>
 			<View style={styles.utilCont}>
 				<TextInput 
 					placeholder="Type here"
@@ -31,13 +30,13 @@ const Transaction = () => {
 				/>
 				<TouchableOpacity style={styles.filter}>
 				</TouchableOpacity>
-			</View> */}
+			</View>
 			<FlatList 
 				data={transactions}
 				renderItem={({ item }) => (
 					<Card transaction={item} />
 				)}
-				keyExtractor={(item, index) => index.toString()}
+				keyExtractor={(item) => item[Object.keys(item)[0]].id}
 				style={ styles.cardCont }
 				contentContainerStyle={{justifyContent: 'center', alignItems: 'center'}}
 			/>
@@ -66,6 +65,7 @@ const styles = StyleSheet.create({
 		backgroundColor: 'maroon'
 	},
 	cardCont: {
+		padding: 10,
 		width: wp(100),
 		height: hp(90),
 		backgroundColor: 'green'	

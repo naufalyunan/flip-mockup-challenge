@@ -16,7 +16,7 @@ const Card = () => {
 const styles = StyleSheet.create({
 	container: {
 		width: wp(90),
-		height: hp(15),
+		height: hp(20),
 		backgroundColor: 'red',
 		margin: 10,
 		borderRadius: 10,
