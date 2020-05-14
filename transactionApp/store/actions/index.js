@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const setTransactions = (data) => {
 	return {
-		action: 'SET_TRANSACTIONS',
+		type: 'SET_TRANSACTIONS',
 		payload: data
 	}
 }
@@ -11,7 +11,13 @@ export const fetchTransactions = (url) => {
 	return (dispatch) =>{
 		axios.get(url)
 			.then(result => {
-				dispatch(setTransactions(result.data))
+				let newArr = []
+				for(let key in result.data){
+					newArr.push({
+						[key]: result.data[key]
+					})
+				}
+				dispatch(setTransactions(newArr))
 			})
 			.catch(console.log)
 	}

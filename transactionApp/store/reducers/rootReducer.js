@@ -1,18 +1,9 @@
-let initialState = {
-	transactions: []
-}
+import { combineReducers } from 'redux'
 
-const rootReducers = (state=initialState, action) => {
-	switch (action.type) {
-		case 'SET_TRANSACTIONS':
-			return {
-				...state,
-				transactions: action.payload
-			}
-	
-		default:
-			return state
-	}
-}
+import transactionReducer from './transactionReducer'
+
+const rootReducers = combineReducers({
+	transactions: transactionReducer
+})
 
 export default rootReducers

@@ -17,7 +17,6 @@ import {
   Colors
 } from 'react-native/Libraries/NewAppScreen';
 
-// import Card from './screens/Card'
 import Transaction from './screens/Transaction'
 
 const App = () => {
