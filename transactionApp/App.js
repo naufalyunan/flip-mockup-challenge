@@ -27,8 +27,8 @@ const App = () => {
 	return (
     <NavigationContainer>
         <Stack.Navigator initialRouteName="transaction">
-          <Stack.Screen name="transaction" component={Transaction} />
-          <Stack.Screen name="detail" component={Detail} />
+          <Stack.Screen name="transaction" component={Transaction} options={{headerShown: false}}/>
+          <Stack.Screen name="detail" component={Detail} options={{headerShown: false}}/>
         </Stack.Navigator>
     </NavigationContainer>
 	)
