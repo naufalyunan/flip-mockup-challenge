@@ -10,7 +10,6 @@ import { useNavigation } from '@react-navigation/native'
 
 const Card = (props) => {
 	const { transaction, id } = props
-
 	const data = transaction[id]
 	const navigation = useNavigation()
 	
@@ -49,12 +48,12 @@ const Card = (props) => {
 		style={transaction[id].status === 'SUCCESS'? [styles.container, styles.successContainer] : [styles.container, styles.checkContainer]}
 		onPress={() =>  navigation.navigate('detail', data)}
 		>
-			<View>
-				<Text style={styles.bankName}>{transaction[id].sender_bank + ' --> ' + transaction[id].beneficiary_bank}</Text>
-				<Text style={styles.userName}>{transaction[id].beneficiary_name}</Text>
-				<Text style={styles.transData}>{amountSeparator(transaction[id].amount) + ' . ' + formattedDate(transaction[id].completed_at)}</Text>
+			<View style={styles.left}>
+				<Text style={styles.bankName}>{transaction[id].sender_bank.toUpperCase() + ' --> ' + transaction[id].beneficiary_bank.toUpperCase()}</Text>
+				<Text style={styles.userName}>{transaction[id].beneficiary_name.toUpperCase()}</Text>
+				<Text style={styles.transData}>{amountSeparator(transaction[id].amount) + ' . ' + formattedDate(transaction[id].created_at)}</Text>
 			</View>
-			<View>
+			<View style={styles.right}>
 				<View style={transaction[id].status === 'SUCCESS'? styles.statusSuccess : styles.statusCheck}>
 					<Text style={transaction[id].status === 'SUCCESS'? styles.textSuccess : styles.textCheck}>{transaction[id].status === 'SUCCESS'? 'Berhasil' : 'Pengecekan'}</Text>
 				</View>
@@ -76,6 +75,9 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		flexDirection: 'row'
 	},
+	left: {
+		width: wp(45)
+	},
 	successContainer: {
 		borderLeftWidth: 5,
 		borderLeftColor: 'green'
@@ -85,27 +87,27 @@ const styles = StyleSheet.create({
 		borderLeftColor: 'red'
 	},
 	bankName: {
-		fontSize: 25,
+		fontSize: wp(5),
 		fontWeight: 'bold',
 		marginBottom: 5
 	},
 	userName :{ 
-		fontSize: 25,
+		fontSize: wp(5),
 		marginTop: 5,
 		marginBottom: 5
 	},
 	transData: {
 		fontSize: 15,
 		marginTop: 5,
-		// marginBottom: 5
+		marginBottom: 5
 	},
 	textCheck: {
-		fontSize: 18,
+		fontSize: wp(4),
 		fontWeight: 'bold',
 		color: '#000'
 	},
 	textSuccess: {
-		fontSize: 18,
+		fontSize: wp(4),
 		fontWeight: 'bold',
 		color: '#fff'
 	},

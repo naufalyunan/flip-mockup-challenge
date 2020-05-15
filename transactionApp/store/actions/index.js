@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const setTransactions = (data) => {
+export const setTransactions = (data) => {
 	return {
 		type: 'SET_TRANSACTIONS',
 		payload: data

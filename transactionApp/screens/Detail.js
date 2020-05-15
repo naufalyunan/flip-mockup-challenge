@@ -75,7 +75,7 @@ const Detail = (props) => {
 							</View>
 							<View style={styles.section}>
 								<Text style={styles.sectionTitle}>WAKTU DIBUAT</Text>
-								<Text style={styles.sectionText}>{formattedDate(data.completed_at)}</Text>
+								<Text style={styles.sectionText}>{formattedDate(data.created_at)}</Text>
 							</View>
 						</View>
 						<View style={styles.column}>
