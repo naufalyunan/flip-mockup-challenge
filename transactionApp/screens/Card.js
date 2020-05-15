@@ -5,8 +5,14 @@ import {
   heightPercentageToDP as hp
 } from 'react-native-responsive-screen';
 
+import { useNavigation } from '@react-navigation/native'
+
+
 const Card = (props) => {
 	const { transaction, id } = props
+
+	const data = transaction[id]
+	const navigation = useNavigation()
 	
 	const amountSeparator = (amount) => {
 		const amountStr = amount.toString()
@@ -39,7 +45,10 @@ const Card = (props) => {
 	}
 
 	return (
-		<TouchableOpacity style={transaction[id].status === 'SUCCESS'? [styles.container, styles.successContainer] : [styles.container, styles.checkContainer]}>
+		<TouchableOpacity 
+		style={transaction[id].status === 'SUCCESS'? [styles.container, styles.successContainer] : [styles.container, styles.checkContainer]}
+		onPress={() =>  navigation.navigate('detail', data)}
+		>
 			<View>
 				<Text style={styles.bankName}>{transaction[id].sender_bank + ' --> ' + transaction[id].beneficiary_bank}</Text>
 				<Text style={styles.userName}>{transaction[id].beneficiary_name}</Text>

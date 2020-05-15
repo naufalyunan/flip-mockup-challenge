@@ -4,8 +4,10 @@ import {
 	widthPercentageToDP as wp,
 	heightPercentageToDP as hp
 } from 'react-native-responsive-screen'
+
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchTransactions } from './../store/actions'
+
 
 import Card from './Card'
 
@@ -53,7 +55,9 @@ const Transaction = () => {
 			<FlatList 
 				data={localList === null ? transactions : localList}
 				renderItem={({ item }) => (
-					<Card transaction={item} id={Object.keys(item)[0]} />
+					<Card transaction={item} 
+						id={Object.keys(item)[0]} 
+					/>
 				)}
 				keyExtractor={(item) => item[Object.keys(item)[0]].id}
 				style={ styles.cardCont }

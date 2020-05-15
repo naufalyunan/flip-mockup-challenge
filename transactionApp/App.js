@@ -5,27 +5,32 @@
  * @format
  * @flow strict-local
  */
-
+import 'react-native-gesture-handler';
 import React from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
-  Text
 } from 'react-native';
 
 import {
   Colors
 } from 'react-native/Libraries/NewAppScreen';
 
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
 import Transaction from './screens/Transaction'
+import Detail from './screens/Detail'
+
+const Stack = createStackNavigator();
 
 const App = () => {
 	return (
-    <>
-      <SafeAreaView>
-        <Transaction />
-      </SafeAreaView>
-    </>
+    <NavigationContainer>
+        <Stack.Navigator initialRouteName="transaction">
+          <Stack.Screen name="transaction" component={Transaction} />
+          <Stack.Screen name="detail" component={Detail} />
+        </Stack.Navigator>
+    </NavigationContainer>
 	)
 }
 

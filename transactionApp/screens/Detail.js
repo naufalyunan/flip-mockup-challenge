@@ -1,11 +1,22 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { SafeAreaView, View, Text } from 'react-native'
 
-const Detail = () => {
+const Detail = (props) => {
+	const data = props.route.params
+
+	console.log(data)
 	return (
-		<View>
-			<Text></Text>
-		</View>
+		<SafeAreaView>
+			<View>
+
+			</View>
+			<View>
+
+			</View>
+			<View>
+
+			</View>
+		</SafeAreaView>
 	)
 }
 
