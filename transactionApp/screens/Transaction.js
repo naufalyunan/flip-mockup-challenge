@@ -6,11 +6,9 @@ import {
 } from 'react-native-responsive-screen'
 
 import { useDispatch, useSelector } from 'react-redux'
-
-import RNPickerSelect from 'react-native-picker-select';
-
 import { fetchTransactions, setTransactions } from './../store/actions'
-
+//picker selector
+import RNPickerSelect from 'react-native-picker-select';
 
 import Card from './Card'
 
